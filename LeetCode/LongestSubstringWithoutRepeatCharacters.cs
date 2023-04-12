@@ -1,4 +1,10 @@
-public class LongestSubstringWithoutRepeatCharacters 
+using System.Runtime.InteropServices;
+using System;
+using System.Collections.Generic;
+
+namespace LeetCode;
+
+public static class LongestSubstringWithoutRepeatCharacters 
 {
     public int LengthOfLongestSubstring(string s) 
     {
@@ -8,8 +14,19 @@ public class LongestSubstringWithoutRepeatCharacters
 
         while (right < s.Length) 
         {
-            if (!charSet)    
-        } 
+            if (!charSet.Contains(s[right])) 
+            {
+                charSet.Add(s[right]);
+                right++;
 
+                maxLength = Math.Max(maxLength, charSet.Count);
+            }
+            else 
+            {
+                charSet.Remove(s[left]);
+                left++;
+            }
+        } 
+        return maxLength;
     }
 }
