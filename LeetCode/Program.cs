@@ -3,11 +3,13 @@ using LeetCode;
 
 // Verify animals
 var animalsLength = OtherExercises.Animals("Elephant-Tiger-Lion-");
-Console.WriteLine("with length " + length);
+Console.WriteLine("with length " + animalsLength);
+Console.WriteLine();
 
 // Anagram
 bool isAnagram = OtherExercises.IsAnagram("car", "rat");
 Console.WriteLine("is anagram " + isAnagram);
+Console.WriteLine();
 
 // Two arrays sum
 var result = TwoSumArray.TwoSumBruteForce(
