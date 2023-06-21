@@ -1,6 +1,15 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using LeetCode;
 
+// Verify animals
+var animalsLength = OtherExercises.Animals("Elephant-Tiger-Lion-");
+Console.WriteLine("with length " + length);
+
+// Anagram
+bool isAnagram = OtherExercises.IsAnagram("car", "rat");
+Console.WriteLine("is anagram " + isAnagram);
+
+// Two arrays sum
 var result = TwoSumArray.TwoSumBruteForce(
     nums: new int[3] { 3, 2, 3 },
     target: 6);

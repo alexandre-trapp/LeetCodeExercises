@@ -6,7 +6,7 @@ namespace LeetCode;
 
 public static class LongestSubstringWithoutRepeatCharacters 
 {
-    public int LengthOfLongestSubstring(string s) 
+    public static int LengthOfLongestSubstring(string s) 
     {
         var charSet = new HashSet<char>();
 
