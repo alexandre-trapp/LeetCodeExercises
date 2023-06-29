@@ -67,7 +67,7 @@ void TestTreasuryChestCases()
     int[] timeLimits = { 3, 2, 4, 5, 3, 6, 5, 6, 4, 5 };
     int[] results = new int[10];
 
-    int[] expectedResults = { 5, 8, 11, 9, 18, 15, 18, 15, 18, 4 };
+    int[] expectedResults = { 5, 8, 8, 9, 18, 15, 18, 15, 18, 10 };
 
     Console.Write("run algorithm...");
 

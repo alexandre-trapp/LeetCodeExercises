@@ -5,29 +5,22 @@
         public static int GetResult(int[] chests, int t)
         {
             int chestsSize = chests.Length;
-            int[,] maxTreasures = new int[chestsSize, t + 1];
+            int[,] maxTreasures = new int[chestsSize + 1, t + 1];
 
-            for (int j = 1; j <= t; j++)
-            {
-                if (j >= 1)
-                {
-                    maxTreasures[0, j] = chests[0];
-                }
-            }
-
-            for (int i = 1; i < chestsSize; i++)
+            for (int i = 1; i <= chestsSize; i++)
             {
                 for (int j = 1; j <= t; j++)
                 {
-                    maxTreasures[i, j] = maxTreasures[i - 1, j];
-                    if (j >= i + 1)
+                    maxTreasures[i, j] = maxTreasures[i - 1, j]; // Carry forward the previous maximum
+
+                    if (j >= i)
                     {
-                        maxTreasures[i, j] = Math.Max(maxTreasures[i, j], maxTreasures[i - 1, j - (i + 1)] + chests[i]);
+                        maxTreasures[i, j] = Math.Max(maxTreasures[i, j], maxTreasures[i - 1, j - i] + chests[i - 1]); // Take current chest and add to the previous maximum
                     }
                 }
             }
 
-            return maxTreasures[chestsSize - 1, t];
+            return maxTreasures[chestsSize, t];
         }
     }
 }
