@@ -2,25 +2,41 @@
 {
     public static class ChestTreasury
     {
-        public static int GetResult(int[] chests, int t)
+        static int CalculateMaximumTreasure(int[] chests, int currentIndex, int remainingAttempts, int[,] maxTreasures)
         {
-            int chestsSize = chests.Length;
-            int[,] maxTreasures = new int[chestsSize + 1, t + 1];
-
-            for (int i = 1; i <= chestsSize; i++)
+            if (currentIndex >= chests.Length || remainingAttempts <= 0)
             {
-                for (int j = 1; j <= t; j++)
-                {
-                    maxTreasures[i, j] = maxTreasures[i - 1, j]; // Carry forward the previous maximum
+                return 0;
+            }
 
-                    if (j >= i)
-                    {
-                        maxTreasures[i, j] = Math.Max(maxTreasures[i, j], maxTreasures[i - 1, j - i] + chests[i - 1]); // Take current chest and add to the previous maximum
-                    }
+            if (maxTreasures[currentIndex, remainingAttempts] >= 0)
+            {
+                return maxTreasures[currentIndex, remainingAttempts];
+            }
+
+            int currentTreasure = chests[currentIndex];
+            
+            int takeCurrent = CalculateMaximumTreasure(chests, currentIndex + 1, remainingAttempts - 2, maxTreasures) + currentTreasure;
+            int skipCurrent = CalculateMaximumTreasure(chests, currentIndex + 1, remainingAttempts - 1, maxTreasures);
+
+            int maxTreasure = Math.Max(takeCurrent, skipCurrent);
+            maxTreasures[currentIndex, remainingAttempts] = maxTreasure;
+            
+            return maxTreasure;
+        }
+
+        public static int GetResult(int[] chests, int remainingAttempts)
+        {
+            int[,] maxTreasures = new int[chests.Length, remainingAttempts + 1];
+            for (int i = 0; i < chests.Length; i++)
+            {
+                for (int j = 0; j < remainingAttempts + 1; j++)
+                {
+                    maxTreasures[i, j] = -1;
                 }
             }
 
-            return maxTreasures[chestsSize, t];
+            return CalculateMaximumTreasure(chests, 0, remainingAttempts, maxTreasures);
         }
     }
 }

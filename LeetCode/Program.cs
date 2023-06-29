@@ -1,6 +1,17 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using LeetCode;
-using System;
+
+// Leveland
+//int[] ground = { 1, 3, 2, 2 };
+
+//var result = Leveland.GetResult(ground);
+//Console.WriteLine(result);
+
+//ground = new int[] { 6, 2, 8, 1 };
+//result = Leveland.GetResult(ground);
+//Console.WriteLine(result); // Output: 11
+
+//return;
 
 // Chest treasury
 TestTreasuryChestCases();
@@ -67,7 +78,7 @@ void TestTreasuryChestCases()
     int[] timeLimits = { 3, 2, 4, 5, 3, 6, 5, 6, 4, 5 };
     int[] results = new int[10];
 
-    int[] expectedResults = { 5, 8, 8, 9, 18, 15, 18, 15, 18, 10 };
+    int[] expectedResults = { 5, 8, 8, 9, 16, 13, 16, 15, 18, 6 };
 
     Console.Write("run algorithm...");
 
