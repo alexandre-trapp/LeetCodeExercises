@@ -1,5 +1,7 @@
 ﻿// See https://aka.ms/new-console-template for more information
+using BenchmarkDotNet.Running;
 using LeetCode;
+using System.Text;
 
 // Leveland
 //int[] ground = { 1, 3, 2, 2 };
@@ -14,7 +16,22 @@ using LeetCode;
 //return;
 
 // Chest treasury
-TestTreasuryChestCases();
+//TestTreasuryChestCases();
+
+var groupAnagrams = GroupAnagram.GroupAnagrams(new string[] {
+            "eat","tea","tan","ate","nat","bat"
+        });
+
+var sb = new StringBuilder("[");
+foreach (var anag in groupAnagrams) 
+{
+
+    sb.Append("[" + string.Join(",", anag) + "],");
+}
+sb.Append("]");
+
+Console.WriteLine(sb.ToString());
+Console.ReadLine();
 
 return;
 
