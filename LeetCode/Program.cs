@@ -1,49 +1,28 @@
-﻿// See https://aka.ms/new-console-template for more information
-using BenchmarkDotNet.Running;
-using LeetCode;
+﻿using LeetCode;
 using System.Text;
 
-// Leveland
-//int[] ground = { 1, 3, 2, 2 };
+var elements = new int[] { 1, 1, 2, 3, 3, 4, 5, 4, 6, 4};
+var k = 2;
 
-//var result = Leveland.GetResult(ground);
-//Console.WriteLine(result);
+var top = TopKFrequentElements.TopKFrequent(elements, k);
+Console.WriteLine(string.Join(',', top));
 
-//ground = new int[] { 6, 2, 8, 1 };
-//result = Leveland.GetResult(ground);
-//Console.WriteLine(result); // Output: 11
+#region GroupAnagrams
 
-//return;
+// GroupAnagrams();
 
-// Chest treasury
-//TestTreasuryChestCases();
+#endregion
 
-var groupAnagrams = GroupAnagram.GroupAnagrams(new string[] {
-            "eat","tea","tan","ate","nat","bat"
-        });
+#region ValidAnagrams
 
-var sb = new StringBuilder("[");
-foreach (var anag in groupAnagrams) 
-{
+//bool isAnagram = ValidaAnagram.IsAnagram("tar", "rat");
+//Console.WriteLine("is anagram " + isAnagram);
+//Console.WriteLine();
 
-    sb.Append("[" + string.Join(",", anag) + "],");
-}
-sb.Append("]");
-
-Console.WriteLine(sb.ToString());
-Console.ReadLine();
+#endregion
 
 return;
 
-// Verify animals
-var animalsLength = OtherExercises.Animals("Elephant-Tiger-Lion-");
-Console.WriteLine("with length " + animalsLength);
-Console.WriteLine();
-
-// Anagram
-bool isAnagram = OtherExercises.IsAnagram("car", "rat");
-Console.WriteLine("is anagram " + isAnagram);
-Console.WriteLine();
 
 // Two arrays sum
 var result = TwoSumArray.TwoSumBruteForce(
@@ -116,6 +95,23 @@ void TestTreasuryChestCases()
     }
 }
 
+static void GroupAnagrams()
+{
+    var groupAnagrams = GroupAnagram.GroupAnagrams(new string[] {
+            "eat","tea","tan","ate","nat","bat"
+        });
+
+    var sb = new StringBuilder("[");
+    foreach (var anag in groupAnagrams)
+    {
+
+        sb.Append("[" + string.Join(",", anag) + "],");
+    }
+    sb.Append("]");
+
+    Console.WriteLine(sb.ToString());
+    Console.ReadLine();
+}
 
 public static class Assert
 {
