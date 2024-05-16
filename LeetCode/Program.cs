@@ -1,11 +1,31 @@
 ﻿using LeetCode;
 using System.Text;
 
+#region EncodeDecode strings
+
+var input = new List<string>
+{
+    "lint","code","love","/","you"
+};
+
+var resultEncode = EncodeDecodeString.Encode(input);
+Console.WriteLine(resultEncode);
+
+var resultDecode = EncodeDecodeString.Decode(resultEncode);
+Console.WriteLine("[" + string.Join(",", resultDecode) + "]");
+
+return;
+
+#endregion
+
+#region TopKFrequentElements
 var elements = new int[] { 1, 1, 2, 3, 3, 4, 5, 4, 6, 4};
 var k = 2;
 
 var top = TopKFrequentElements.TopKFrequent(elements, k);
 Console.WriteLine(string.Join(',', top));
+
+#endregion
 
 #region GroupAnagrams
 
