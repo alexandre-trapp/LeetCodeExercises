@@ -11,6 +11,8 @@ namespace LeetCode
     {
         public static string Encode(List<string> input)
         {
+            if (input is null || input.Count == 0) return string.Empty;
+
             var output = new StringBuilder();
 
             foreach (var item in input)
