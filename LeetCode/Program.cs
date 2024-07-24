@@ -1,5 +1,41 @@
 ﻿using LeetCode;
+using System.Diagnostics;
 using System.Text;
+
+#region FindTargetIndex
+
+// empty array returns -1
+
+int[] nums = new int[] { };
+int index = FindTargetIndex.FindTargetIndexArrayFromValue(nums, 1);
+Debug.Assert(index == -1, "index must be equals -1");
+
+
+// array with no value found returns -1
+
+nums = new int[] { 1, 2, 3, 5, 6 };
+index = FindTargetIndex.FindTargetIndexArrayFromValue(nums, 8);
+Debug.Assert(index == -1, "index must be equals -1");
+
+// array with value target founded returns index
+
+nums = new int[] { 1, 2, 3, 5, 6, 888 };
+for (int i = 0; i < nums.Length; i++)
+{
+    index = FindTargetIndex.FindTargetIndexArrayFromValue(nums, nums[i]);
+    Debug.Assert(index == i, $"index must be equals {i}");
+}
+
+// array with value tareget founded returns index
+
+nums = new int[] { 8 };
+index = FindTargetIndex.FindTargetIndexArrayFromValue(nums, 8);
+Debug.Assert(index == 0, "index must be equals 0");
+
+return;
+
+#endregion
+
 
 #region EncodeDecode strings
 
