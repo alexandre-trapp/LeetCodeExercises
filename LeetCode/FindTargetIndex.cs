@@ -22,11 +22,11 @@ namespace LeetCode
             {
                 if (left > right) return index;
 
-                if (nums[left] == value) index = left;
+                if (nums[left] == value) return left;
 
-                if (nums[right] == value) index = right;
+                else if (nums[right] == value) return right;
 
-                if (nums[middle] == value) index = middle;
+                else if (nums[middle] == value) return middle;
 
                 if (middle == 0 || left == right) return index;
 
